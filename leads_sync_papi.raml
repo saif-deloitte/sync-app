@@ -1,0 +1,59 @@
+#%RAML 1.0
+title: Leads-Sync-PAPI
+version: v1
+protocols:
+  - HTTP
+  - HTTPS
+mediaType:
+  - application/json
+/leadsync:
+  post:
+    description: Leads sync
+    body:
+      application/json:
+        example : 
+          {
+            "ID": "1",
+            "FirstName": "abc",
+            "LastName": "def",
+            "Company" : "HashedIn",
+            "Email" : "abc123@gmail.com",
+            "Description": "IE",
+            "Lead_Status": "Open-Not Contacted",
+            "CreatedTime": "1/1/2022, 2:12 PM",
+            "lastUpdated": "1/2/2022, 2:12 PM"
+          } 
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {
+              "message": "Data created succesfully"
+            }
+
+  /leadpatch :
+    patch:
+      description: Leads update
+      body:
+        application/json:
+          example :
+            {
+              "ID": "2",
+              "FirstName": "def",
+              "LastName": "ghi",
+              "Company" : "Deloitte",
+              "Email" : "def321@gmail.com",
+              "Description": "SE",
+              "Lead_Status": "Open-Not Contacted",
+              "CreatedTime": "1/1/2022, 2:12 PM",
+              "lastUpdated": "1/2/2022, 2:12 PM"
+            } 
+      responses:
+        201:
+          body:
+            application/json:
+              example:
+                {
+                "message": "Lead updated succesfully"
+              }
